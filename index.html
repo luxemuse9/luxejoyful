@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joyful Luxe | Beauty & Luxury Finds</title>
+    <title>Fulluxe | Beauty & Luxury Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables for Color Scheme */
+        /* CSS Variables */
         :root {
             --cream-white: #FDFDFD;
             --warm-cream: #FAF7F2;
@@ -106,10 +106,6 @@
             font-size: 28px;
             font-weight: 700;
             color: var(--text-dark);
-        }
-
-        .logo span {
-            color: var(--soft-blush);
         }
 
         nav ul {
@@ -213,6 +209,18 @@
             background-position: center;
         }
 
+        .skincare-category .category-img {
+            background-image: url('https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+        }
+
+        .fragrance-category .category-img {
+            background-image: url('https://images.unsplash.com/photo-1590736969953-204a49e0e466?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+        }
+
+        .bags-category .category-img {
+            background-image: url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+        }
+
         .category-content {
             position: absolute;
             bottom: 0;
@@ -256,6 +264,18 @@
             height: 200px;
             background-size: cover;
             background-position: center;
+        }
+
+        .skincare-post {
+            background-image: url('https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+        }
+
+        .fragrance-post {
+            background-image: url('https://images.unsplash.com/photo-1590736969953-204a49e0e466?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+        }
+
+        .bags-post {
+            background-image: url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
         }
 
         .post-content {
@@ -348,6 +368,26 @@
         .insta-overlay i {
             color: white;
             font-size: 24px;
+        }
+
+        .insta-1 {
+            background-image: url('https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');
+        }
+
+        .insta-2 {
+            background-image: url('https://images.unsplash.com/photo-1590736969953-204a49e0e466?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');
+        }
+
+        .insta-3 {
+            background-image: url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');
+        }
+
+        .insta-4 {
+            background-image: url('https://images.unsplash.com/photo-1587017539504-67cfbddac569?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');
+        }
+
+        .insta-5 {
+            background-image: url('https://images.unsplash.com/photo-1587017539504-67cfbddac569?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');
         }
 
         .instagram-cta {
@@ -531,6 +571,27 @@
             font-size: 14px;
         }
 
+        /* Additional styles for single-page functionality */
+        .page-section {
+            display: none;
+        }
+        
+        #home-page {
+            display: block;
+        }
+        
+        .active-page {
+            display: block !important;
+        }
+        
+        .active-nav {
+            color: var(--soft-blush);
+        }
+        
+        .active-nav:after {
+            width: 100% !important;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-container {
@@ -569,13 +630,16 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="#" class="logo">Joyful<span>Luxe</span></a>
+            <a href="#" class="logo" onclick="showPage('home-page')">Fulluxe</a>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#" onclick="showPage('home-page')" class="active-nav">Home</a></li>
+                    <li><a href="#" onclick="showPage('skincare-page')">Skincare</a></li>
+                    <li><a href="#" onclick="showPage('fragrances-page')">Fragrances</a></li>
+                    <li><a href="#" onclick="showPage('bags-page')">Bags</a></li>
+                    <li><a href="#" onclick="showPage('blog-page')">Blog</a></li>
+                    <li><a href="#" onclick="showPage('about-page')">About</a></li>
+                    <li><a href="#" onclick="showPage('contact-page')">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-icons">
@@ -586,194 +650,395 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Discover Joyful Luxury</h1>
-            <p>Beautiful finds for the budget-conscious beauty enthusiast. Explore skincare, fragrances, and bags that spark joy without breaking the bank.</p>
-            <a href="#" class="btn">Explore Our Favorites</a>
-        </div>
-    </section>
-
-    <!-- Featured Categories -->
-    <section class="featured-categories">
-        <div class="container">
-            <h2 class="section-title">Featured Categories</h2>
-            <div class="categories-grid">
-                <div class="category-card">
-                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="category-content">
-                        <h3>Skincare</h3>
-                        <p>Discover radiant skin with our budget-friendly favorites</p>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1590736969953-204a49e0e466?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="category-content">
-                        <h3>Fragrances</h3>
-                        <p>Find your signature scent without the luxury price tag</p>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="category-content">
-                        <h3>Bags</h3>
-                        <p>Chic handbags that elevate your style on a budget</p>
-                    </div>
-                </div>
+    <!-- Home Page -->
+    <section id="home-page" class="page-section active-page">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Discover Joyful Luxury</h1>
+                <p>Beautiful finds for the budget-conscious beauty enthusiast. Explore skincare, fragrances, and bags that spark joy without breaking the bank.</p>
+                <a href="#" class="btn" onclick="showPage('blog-page')">Explore Our Favorites</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Latest Posts -->
-    <section class="latest-posts">
-        <div class="container">
-            <h2 class="section-title">Latest From The Blog</h2>
-            <div class="posts-grid">
-                <div class="post-card">
-                    <div class="post-img" style="background-image: url('https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="post-content">
-                        <span class="post-tag">Skincare</span>
-                        <div class="post-meta">
-                            <span>June 15, 2023</span>
-                            <span>5 min read</span>
+        <!-- Featured Categories -->
+        <section class="featured-categories">
+            <div class="container">
+                <h2 class="section-title">Featured Categories</h2>
+                <div class="categories-grid">
+                    <a href="#" class="category-card skincare-category" onclick="showPage('skincare-page')">
+                        <div class="category-img"></div>
+                        <div class="category-content">
+                            <h3>Skincare</h3>
+                            <p>Discover radiant skin with our budget-friendly favorites</p>
                         </div>
-                        <h3>5 Budget-Friendly Serums That Actually Work</h3>
-                        <p>Discover affordable skincare heroes that deliver visible results without the luxury price tag.</p>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="post-card">
-                    <div class="post-img" style="background-image: url('https://images.unsplash.com/photo-1590736969953-204a49e0e466?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="post-content">
-                        <span class="post-tag">Fragrances</span>
-                        <div class="post-meta">
-                            <span>June 10, 2023</span>
-                            <span>4 min read</span>
+                    </a>
+                    <a href="#" class="category-card fragrance-category" onclick="showPage('fragrances-page')">
+                        <div class="category-img"></div>
+                        <div class="category-content">
+                            <h3>Fragrances</h3>
+                            <p>Find your signature scent without the luxury price tag</p>
                         </div>
-                        <h3>Dupes That Smell Like Luxury Perfumes</h3>
-                        <p>Find affordable alternatives to high-end fragrances that capture the same essence.</p>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="post-card">
-                    <div class="post-img" style="background-image: url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="post-content">
-                        <span class="post-tag">Bags</span>
-                        <div class="post-meta">
-                            <span>June 5, 2023</span>
-                            <span>6 min read</span>
+                    </a>
+                    <a href="#" class="category-card bags-category" onclick="showPage('bags-page')">
+                        <div class="category-img"></div>
+                        <div class="category-content">
+                            <h3>Bags</h3>
+                            <p>Chic handbags that elevate your style on a budget</p>
                         </div>
-                        <h3>Affordable Tote Bags That Look Expensive</h3>
-                        <p>Elevate your everyday style with these chic and practical bags that won't break the bank.</p>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Posts -->
+        <section class="latest-posts">
+            <div class="container">
+                <h2 class="section-title">Latest From The Blog</h2>
+                <div class="posts-grid">
+                    <a href="#" class="post-card" onclick="showPage('blog-page')">
+                        <div class="post-img skincare-post"></div>
+                        <div class="post-content">
+                            <span class="post-tag">Skincare</span>
+                            <div class="post-meta">
+                                <span>June 15, 2023</span>
+                                <span>5 min read</span>
+                            </div>
+                            <h3>5 Budget-Friendly Serums That Actually Work</h3>
+                            <p>Discover affordable skincare heroes that deliver visible results without the luxury price tag.</p>
+                            <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="#" class="post-card" onclick="showPage('blog-page')">
+                        <div class="post-img fragrance-post"></div>
+                        <div class="post-content">
+                            <span class="post-tag">Fragrances</span>
+                            <div class="post-meta">
+                                <span>June 10, 2023</span>
+                                <span>4 min read</span>
+                            </div>
+                            <h3>Dupes That Smell Like Luxury Perfumes</h3>
+                            <p>Find affordable alternatives to high-end fragrances that capture the same essence.</p>
+                            <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    <a href="#" class="post-card" onclick="showPage('blog-page')">
+                        <div class="post-img bags-post"></div>
+                        <div class="post-content">
+                            <span class="post-tag">Bags</span>
+                            <div class="post-meta">
+                                <span>June 5, 2023</span>
+                                <span>6 min read</span>
+                            </div>
+                            <h3>Affordable Tote Bags That Look Expensive</h3>
+                            <p>Elevate your everyday style with these chic and practical bags that won't break the bank.</p>
+                            <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#" class="btn btn-secondary" onclick="showPage('blog-page')">View All Blog Posts</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram Section -->
+        <section class="instagram-section">
+            <div class="container">
+                <h2 class="section-title">Follow Our Daily Joy</h2>
+                <div class="instagram-feed">
+                    <a href="https://instagram.com/p/example1" class="insta-post insta-1" target="_blank">
+                        <div class="insta-overlay">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com/p/example2" class="insta-post insta-2" target="_blank">
+                        <div class="insta-overlay">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com/p/example3" class="insta-post insta-3" target="_blank">
+                        <div class="insta-overlay">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com/p/example4" class="insta-post insta-4" target="_blank">
+                        <div class="insta-overlay">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com/p/example5" class="insta-post insta-5" target="_blank">
+                        <div class="insta-overlay">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="instagram-cta">
+                    <a href="https://instagram.com/fulluxe" class="btn btn-secondary" target="_blank">Follow @Fulluxe</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container">
+                <h2>Join Our Beauty Circle</h2>
+                <p>Get weekly tips, exclusive deals, and joyful beauty discoveries delivered straight to your inbox.</p>
+                <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                    <input type="email" id="newsletter-email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Comments Section -->
+        <section class="comments-section">
+            <div class="container">
+                <h2 class="section-title">Community Favorites</h2>
+                <div class="comments-container">
+                    <div class="comment">
+                        <div class="comment-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="comment-content">
+                            <h4>Sarah M.</h4>
+                            <div class="comment-meta">June 12, 2023</div>
+                            <p>I tried the vitamin C serum you recommended and my skin has never looked better! Thank you for sharing such affordable options.</p>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="comment-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="comment-content">
+                            <h4>Jessica L.</h4>
+                            <div class="comment-meta">June 8, 2023</div>
+                            <p>The perfume dupe for that luxury brand is spot on! I've received so many compliments and saved over $100. You're amazing!</p>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="comment-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="comment-content">
+                            <h4>Maya T.</h4>
+                            <div class="comment-meta">June 5, 2023</div>
+                            <p>Just purchased the tote bag from your recommendation and it's perfect for work. The quality is incredible for the price!</p>
+                        </div>
+                    </div>
+                    <div class="comment-form">
+                        <h3>Join the Conversation</h3>
+                        <form onsubmit="handleComment(event)">
+                            <div class="form-group">
+                                <input type="text" id="comment-name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="comment-email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="comment-text" placeholder="Your Comment" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Post Comment</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </section>
 
-    <!-- Instagram Section -->
-    <section class="instagram-section">
-        <div class="container">
-            <h2 class="section-title">Follow Our Daily Joy</h2>
-            <div class="instagram-feed">
-                <div class="insta-post" style="background-image: url('https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
-                    <div class="insta-overlay">
-                        <i class="fab fa-instagram"></i>
+    <!-- Skincare Page -->
+    <section id="skincare-page" class="page-section">
+        <section class="hero">
+            <div class="container">
+                <h1>Skincare</h1>
+                <p>Discover radiant skin with our curated selection of budget-friendly skincare products that deliver luxury results.</p>
+            </div>
+        </section>
+
+        <section class="latest-posts">
+            <div class="container">
+                <h2 class="section-title">Skincare Products & Reviews</h2>
+                <div class="posts-grid">
+                    <div class="post-card">
+                        <div class="post-img skincare-post"></div>
+                        <div class="post-content">
+                            <span class="post-tag">Skincare</span>
+                            <div class="post-meta">
+                                <span>June 15, 2023</span>
+                                <span>5 min read</span>
+                            </div>
+                            <h3>5 Budget-Friendly Serums That Actually Work</h3>
+                            <p>Discover affordable skincare heroes that deliver visible results without the luxury price tag.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="insta-post" style="background-image: url('https://images.unsplash.com/photo-1590736969953-204a49e0e466?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
-                    <div class="insta-overlay">
-                        <i class="fab fa-instagram"></i>
+                    <div class="post-card">
+                        <div class="post-img" style="background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                        <div class="post-content">
+                            <span class="post-tag">Skincare</span>
+                            <div class="post-meta">
+                                <span>June 8, 2023</span>
+                                <span>4 min read</span>
+                            </div>
+                            <h3>Morning Routine for Glowing Skin</h3>
+                            <p>Start your day right with this simple yet effective morning skincare routine.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="insta-post" style="background-image: url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
-                    <div class="insta-overlay">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                </div>
-                <div class="insta-post" style="background-image: url('https://images.unsplash.com/photo-1587017539504-67cfbddac569?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
-                    <div class="insta-overlay">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                </div>
-                <div class="insta-post" style="background-image: url('https://images.unsplash.com/photo-1587017539504-67cfbddac569?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
-                    <div class="insta-overlay">
-                        <i class="fab fa-instagram"></i>
+                    <div class="post-card">
+                        <div class="post-img" style="background-image: url('https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                        <div class="post-content">
+                            <span class="post-tag">Skincare</span>
+                            <div class="post-meta">
+                                <span>June 1, 2023</span>
+                                <span>6 min read</span>
+                            </div>
+                            <h3>Drugstore Finds That Rival Luxury Brands</h3>
+                            <p>These affordable skincare products perform just as well as their high-end counterparts.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="instagram-cta">
-                <a href="#" class="btn btn-secondary">Follow @JoyfulLuxe</a>
+        </section>
+    </section>
+
+    <!-- Fragrances Page -->
+    <section id="fragrances-page" class="page-section">
+        <section class="hero">
+            <div class="container">
+                <h1>Fragrances</h1>
+                <p>Find your signature scent without the luxury price tag. Discover affordable perfumes that smell expensive.</p>
             </div>
-        </div>
+        </section>
+
+        <section class="latest-posts">
+            <div class="container">
+                <h2 class="section-title">Fragrance Finds</h2>
+                <div class="posts-grid">
+                    <div class="post-card">
+                        <div class="post-img fragrance-post"></div>
+                        <div class="post-content">
+                            <span class="post-tag">Fragrances</span>
+                            <div class="post-meta">
+                                <span>June 10, 2023</span>
+                                <span>4 min read</span>
+                            </div>
+                            <h3>Dupes That Smell Like Luxury Perfumes</h3>
+                            <p>Find affordable alternatives to high-end fragrances that capture the same essence.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
 
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <div class="container">
-            <h2>Join Our Beauty Circle</h2>
-            <p>Get weekly tips, exclusive deals, and joyful beauty discoveries delivered straight to your inbox.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Your email address">
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
+    <!-- Bags Page -->
+    <section id="bags-page" class="page-section">
+        <section class="hero">
+            <div class="container">
+                <h1>Bags</h1>
+                <p>Chic handbags that elevate your style on a budget. Discover affordable luxury that doesn't compromise on quality.</p>
+            </div>
+        </section>
+
+        <section class="latest-posts">
+            <div class="container">
+                <h2 class="section-title">Bag Collection</h2>
+                <div class="posts-grid">
+                    <div class="post-card">
+                        <div class="post-img bags-post"></div>
+                        <div class="post-content">
+                            <span class="post-tag">Bags</span>
+                            <div class="post-meta">
+                                <span>June 5, 2023</span>
+                                <span>6 min read</span>
+                            </div>
+                            <h3>Affordable Tote Bags That Look Expensive</h3>
+                            <p>Elevate your everyday style with these chic and practical bags that won't break the bank.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
 
-    <!-- Comments Section -->
-    <section class="comments-section">
-        <div class="container">
-            <h2 class="section-title">Community Favorites</h2>
-            <div class="comments-container">
-                <div class="comment">
-                    <div class="comment-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="comment-content">
-                        <h4>Sarah M.</h4>
-                        <div class="comment-meta">June 12, 2023</div>
-                        <p>I tried the vitamin C serum you recommended and my skin has never looked better! Thank you for sharing such affordable options.</p>
-                    </div>
+    <!-- Blog Page -->
+    <section id="blog-page" class="page-section">
+        <section class="hero">
+            <div class="container">
+                <h1>Blog</h1>
+                <p>All our latest beauty discoveries, tips, and reviews in one place.</p>
+            </div>
+        </section>
+
+        <section class="latest-posts">
+            <div class="container">
+                <h2 class="section-title">All Blog Posts</h2>
+                <div class="posts-grid">
+                    <!-- Include all blog posts here -->
                 </div>
-                <div class="comment">
-                    <div class="comment-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="comment-content">
-                        <h4>Jessica L.</h4>
-                        <div class="comment-meta">June 8, 2023</div>
-                        <p>The perfume dupe for that luxury brand is spot on! I've received so many compliments and saved over $100. You're amazing!</p>
-                    </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- About Page -->
+    <section id="about-page" class="page-section">
+        <section class="hero">
+            <div class="container">
+                <h1>About Fulluxe</h1>
+                <p>Discovering beautiful finds that spark joy without breaking the bank.</p>
+            </div>
+        </section>
+
+        <section class="latest-posts">
+            <div class="container">
+                <div class="about-content">
+                    <h2>Our Story</h2>
+                    <p>Fulluxe was born from a passion for beauty and luxury, combined with the practical reality of a budget. We believe everyone deserves to feel luxurious and beautiful without spending a fortune.</p>
+                    
+                    <h2>Our Mission</h2>
+                    <p>To help budget-conscious beauty enthusiasts discover high-quality, affordable products that bring joy and confidence.</p>
+                    
+                    <h2>Why Trust Us?</h2>
+                    <p>All our recommendations are thoroughly tested and researched. We're committed to honest reviews and only share products we genuinely love.</p>
                 </div>
-                <div class="comment">
-                    <div class="comment-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="comment-content">
-                        <h4>Maya T.</h4>
-                        <div class="comment-meta">June 5, 2023</div>
-                        <p>Just purchased the tote bag from your recommendation and it's perfect for work. The quality is incredible for the price!</p>
-                    </div>
-                </div>
-                <div class="comment-form">
-                    <h3>Join the Conversation</h3>
-                    <form>
+            </div>
+        </section>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact-page" class="page-section">
+        <section class="hero">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>We'd love to hear from you! Get in touch with any questions or suggestions.</p>
+            </div>
+        </section>
+
+        <section class="latest-posts">
+            <div class="container">
+                <div class="contact-form-container">
+                    <form class="comment-form" onsubmit="handleContact(event)">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name">
+                            <input type="text" id="contact-name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email">
+                            <input type="email" id="contact-email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Your Comment"></textarea>
+                            <input type="text" id="contact-subject" placeholder="Subject" required>
                         </div>
-                        <button type="submit" class="btn">Post Comment</button>
+                        <div class="form-group">
+                            <textarea id="contact-message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
             </div>
-        </div>
+        </section>
     </section>
 
     <!-- Footer -->
@@ -781,30 +1046,30 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
-                    <h3>JoyfulLuxe</h3>
+                    <h3>Fulluxe</h3>
                     <p>Discovering beautiful finds that spark joy without breaking the bank.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-pinterest"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/fulluxe" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://pinterest.com/fulluxe" target="_blank"><i class="fab fa-pinterest"></i></a>
+                        <a href="https://twitter.com/fulluxe" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://facebook.com/fulluxe" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
                     <h3>Categories</h3>
                     <ul>
-                        <li><a href="#">Skincare</a></li>
-                        <li><a href="#">Fragrances</a></li>
-                        <li><a href="#">Bags</a></li>
-                        <li><a href="#">Makeup</a></li>
-                        <li><a href="#">Haircare</a></li>
+                        <li><a href="#" onclick="showPage('skincare-page')">Skincare</a></li>
+                        <li><a href="#" onclick="showPage('fragrances-page')">Fragrances</a></li>
+                        <li><a href="#" onclick="showPage('bags-page')">Bags</a></li>
+                        <li><a href="#" onclick="showPage('blog-page')">Makeup</a></li>
+                        <li><a href="#" onclick="showPage('blog-page')">Haircare</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#" onclick="showPage('about-page')">About Us</a></li>
+                        <li><a href="#" onclick="showPage('contact-page')">Contact</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms of Service</a></li>
                         <li><a href="#">Affiliate Disclosure</a></li>
@@ -813,17 +1078,83 @@
                 <div class="footer-col">
                     <h3>Newsletter</h3>
                     <p>Subscribe to get special offers, free giveaways, and joyful updates.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email">
+                    <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                        <input type="email" id="footer-newsletter-email" placeholder="Your email">
                         <button type="submit"><i class="fas fa-arrow-right"></i></button>
                     </form>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 JoyfulLuxe. All rights reserved.</p>
+                <p>&copy; 2023 Fulluxe. All rights reserved.</p>
             </div>
         </div>
     </footer>
-</body>
 
+    <script>
+        // Page navigation function
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => {
+                page.classList.remove('active-page');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active-page');
+            
+            // Update active navigation
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.classList.remove('active-nav');
+            });
+            
+            // Find and set active nav link
+            const currentNavLink = Array.from(navLinks).find(link => 
+                link.getAttribute('onclick')?.includes(pageId)
+            );
+            if (currentNavLink) {
+                currentNavLink.classList.add('active-nav');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Prevent default link behavior
+            if (event) event.preventDefault();
+        }
+        
+        // Form handling functions
+        function handleNewsletter(event) {
+            event.preventDefault();
+            const email = document.getElementById('newsletter-email').value || document.getElementById('footer-newsletter-email').value;
+            alert(`Thank you for subscribing with ${email}! You'll receive our beauty updates soon.`);
+            // Clear form
+            document.getElementById('newsletter-email').value = '';
+            if(document.getElementById('footer-newsletter-email')) {
+                document.getElementById('footer-newsletter-email').value = '';
+            }
+        }
+        
+        function handleComment(event) {
+            event.preventDefault();
+            const name = document.getElementById('comment-name').value;
+            alert(`Thank you for your comment, ${name}! It will be reviewed before posting.`);
+            // Clear form
+            document.getElementById('comment-name').value = '';
+            document.getElementById('comment-email').value = '';
+            document.getElementById('comment-text').value = '';
+        }
+        
+        function handleContact(event) {
+            event.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            alert(`Thank you for your message, ${name}! We'll get back to you soon.`);
+            // Clear form
+            document.getElementById('contact-name').value = '';
+            document.getElementById('contact-email').value = '';
+            document.getElementById('contact-subject').value = '';
+            document.getElementById('contact-message').value = '';
+        }
+    </script>
+</body>
 </html>
